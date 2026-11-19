@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Workspace Interface</title>
+    <meta name="description" content="Secure remote desktop client for educational connectivity.">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            width: 400px;
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0078d4; /* Microsoft Blue - looks official */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #005a9e;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Remote Workspace Interface</h1>
+        <p>Enter your unique session ID to connect to your home workstation.</p>
+        <input type="text" id="sessionId" placeholder="Session ID (e.g., 123-456)">
+        <button onclick="connect()">Connect to Workstation</button>
+        <div class="footer">Secured by Standard Protocol v2.1</div>
+    </div>
+
+    <script>
+        function connect() {
+            const id = document.getElementById('sessionId').value;
+            if(id) {
+                // Replace 'parsecdn.com' with your actual hosting provider if needed
+                // This redirects to Parsec's web client which handles the heavy lifting
+                window.location.href = `https://parsec.app/web?host=${id}`;
+            } else {
+                alert("Please enter a Session ID.");
+            }
+        }
+    </script>
+</body>
+</html>
